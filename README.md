@@ -28,12 +28,12 @@
  sudo echo "kops  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/kops
  sudo su - kops
  ```
- ##  2a) install AWSCLI using the apt package manager
+ ##  2b) install AWSCLI using the apt package manager
   ```sh
  sudo apt update
  sudo apt install awscli -y 
  ```
- ## or 2b) install AWSCLI using the script below
+ ## or 2b1) install AWSCLI using the script below
  ```sh
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
