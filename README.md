@@ -92,6 +92,7 @@ click enter to d end.
 kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 --node-size t2.medium --node-count=2 ${NAME}
 # copy the sshkey into your cluster to be able to access your kubernetes node from the kops server
 kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub  #id key copied id_rsa.pub
+#kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub 
 ```
 Play around w d suggestions in 10a
 kops get cluster
