@@ -111,6 +111,7 @@ kops update cluster ${NAME} --yes    #will take a while to update.
 # 10a) Validate your cluster(KOPS will take some time to create cluster ,Execute below commond after 3 or 4 mins)
 
 wait for about 10min b4 u run d valiate command
+
 sudo kops validate cluster
 	   
 	   Suggestions:
