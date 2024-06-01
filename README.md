@@ -36,12 +36,14 @@
  ## or 2b1) install AWSCLI using the script below
  ```sh
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
 unzip awscliv2.zip
 sudo ./aws/install
 aws --version
  ```
 ## 3) Install kops software on an ubuntu instance by running the commands below:
- 	sudo apt install wget -y
+ 	kops@master:~$
+        sudo apt install wget -y
  	sudo wget https://github.com/kubernetes/kops/releases/download/v1.22.0/kops-linux-amd64
  	sudo chmod +x kops-linux-amd64
  	sudo mv kops-linux-amd64 /usr/local/bin/kops
@@ -66,7 +68,7 @@ You Created. --> Save.
 
 ## 6) create an S3 bucket
 ## Execute the commands below in your KOPS control Server. use unique s3 bucket name. If you get bucket name exists error.
-	aws s3 mb s3://class30kops
+	aws s3 mb s3://classkops
 	aws s3 ls # to verify
 	
  ## 6b) create an S3 bucket    Set e't varaibles.
@@ -75,8 +77,8 @@ You Created. --> Save.
     
        vi .bashrc
 	# Give Unique Name And S3 Bucket which you created. Paste below in .bashrc
-	export NAME=class.k8s.local
-	export KOPS_STATE_STORE=s3://class35akops
+	export NAME=t2class.k8s.local
+	export KOPS_STATE_STORE=s3://classkops
  #info about my clustre wil be stored in d s3 bucket created.
  
       source .bashrc   #refresh d file
@@ -88,11 +90,13 @@ click enter to d end.
 ```
 
 # 8) Create kubernetes cluster definitions on S3 bucket
-```sh
+```shth
+ls .ssh   // copy key and replace d end code of line 3 (kops create secret...)
 kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 --node-size t2.medium --node-count=2 ${NAME}
 # copy the sshkey into your cluster to be able to access your kubernetes node from the kops server
 kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub  #id key copied id_rsa.pub
-#kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub 
+#kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub
+ 
 ```
 Play around w d suggestions in 10a
 kops get cluster
@@ -107,7 +111,7 @@ kops update cluster ${NAME} --yes    #will take a while to update.
 # 10a) Validate your cluster(KOPS will take some time to create cluster ,Execute below commond after 3 or 4 mins)
 
 wait for about 10min b4 u run d valiate command
-kops validate cluster
+sudo kops validate cluster
 	   
 	   Suggestions:
  * validate cluster: kops validate cluster --wait 10m
