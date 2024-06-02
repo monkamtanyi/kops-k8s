@@ -90,8 +90,8 @@ click enter to d end.
 ```
 
 # 8) Create kubernetes cluster definitions on S3 bucket
-```shth
-ls .ssh   // copy key and replace d end code of line 3 (kops create secret...)
+```
+#ls .ssh   // copy key and replace d end code of line 3 (kops create secret...)
 kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 --node-size t2.medium --node-count=2 ${NAME}
 # copy the sshkey into your cluster to be able to access your kubernetes node from the kops server
 kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub  #id key copied id_rsa.pub
