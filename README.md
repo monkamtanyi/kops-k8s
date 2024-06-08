@@ -106,7 +106,7 @@ kops edit cluster class.k8s.lacal  #use for editing if need be
 
 # 9) Initialise your kops kubernetes cluser by running the command below
 ```sh
-kops update cluster ${NAME} --yes    #will take a while to update.
+kops update cluster team2clas.k8s.local --yes    #will take a while to update.
 ```
 # 10a) Validate your cluster(KOPS will take some time to create cluster ,Execute below commond after 3 or 4 mins)
 
