@@ -77,7 +77,7 @@ You Created. --> Save.
     
        vi .bashrc
 	# Give Unique Name And S3 Bucket which you created. Paste below in .bashrc
-	export NAME=t2class.k8s.local
+	export NAME=team2class.k8s.local
 	export KOPS_STATE_STORE=s3://classkops
  #info about my clustre wil be stored in d s3 bucket created.
  
@@ -94,7 +94,7 @@ click enter to d end.
 #ls .ssh   // copy key and replace d end code of line 3 (kops create secret...)
 kops create cluster --zones us-east-1a --networking weave --master-size t2.medium --master-count 1 --node-size t2.medium --node-count=2 ${NAME}
 # copy the sshkey into your cluster to be able to access your kubernetes node from the kops server
-kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub  #id key copied id_rsa.pub
+kops create secret --name team2class.k8s.local sshpublickey admin -i ~/.ssh/id_rsa.pub  #id key copied id_rsa.pub
 #kops create secret --name ${NAME} sshpublickey admin -i ~/.ssh/id_rsa.pub
  
 ```
