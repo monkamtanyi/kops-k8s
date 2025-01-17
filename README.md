@@ -33,7 +33,7 @@
  sudo apt update
  sudo apt install awscli -y 
  ```
- ## or 2b1) install AWSCLI using the script below
+ ## or 2b1) install AWSCLI using the script below this is the one that worked
  ```sh
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo apt install unzip
